@@ -1,92 +1,55 @@
-# 🎲 Dice Simulator
+# Minesweeper 💣
 
-A dice rolling simulator implemented in **C** and **x86 Assembly**, developed as a Computer Organization & Architecture course project.
-
----
-
-## 📋 Description
-
-This project simulates rolling one or more standard 6-sided dice. It uses a **Linear Congruential Generator (LCG)** algorithm — a classic pseudo-random number generation technique — to produce dice roll results. The project demonstrates low-level programming concepts by implementing the core logic in both C and Assembly language.
+A single-player Minesweeper game built with Python and Pygame. Clear a grid of hidden mines using number clues — flag suspects, reveal safe cells, and survive!
 
 ---
 
-## ✨ Features
+## Installation
 
-- Roll any number of dice in a single turn
-- Pseudo-random number generation using the LCG algorithm (multiplier: `1103515245`, a standard LCG constant)
-- Displays each individual die result
-- Shows the **total sum** of all dice rolled
-- Prompts the user to roll again or exit
-- Input validation (rejects zero or negative dice counts)
+Ensure Python 3.x is installed, then install Pygame:
+---
+
+## How to Run
+---
+
+## How to Play
+
+When you launch the game, you'll be prompted to enter your name.
+If you've played before, you can choose to continue your saved game (`y`) or start fresh (`n`).
+
+| Action | Result |
+|---|---|
+| Left-click | Reveal a cell — mine = game over, number = adjacent mine count |
+| Right-click | Place or remove a flag on a suspected mine |
+| `S` key | Save your progress |
+| `E` key | Exit the game |
+
+> If a revealed cell has no adjacent mines, surrounding cells are uncovered automatically.
 
 ---
 
-## 🛠️ Technologies Used
+## Winning & Losing
 
-| Language | Purpose |
-|----------|---------|
-| C | High-level logic, I/O, and control flow |
-| x86 Assembly | Low-level implementation of the simulation core |
-
----
-
-## 🚀 How to Run
-
-### Compile (C version)
-
-```bash
-gcc dice_simulator.c -o dice_simulator
-./dice_simulator
-```
-
-### Compile (Assembly version)
-
-```bash
-nasm -f elf64 dice_simulator.asm -o dice_simulator.o
-gcc dice_simulator.o -o dice_simulator -no-pie
-./dice_simulator
-```
+- **Win** — reveal all non-mine cells
+- **Lose** — click on a mine
+- Result screen displays **"YOU WIN!"** or **"GAME OVER"**
 
 ---
 
-## 🎮 Sample Output
+## Features
 
-```
-How many dice will you roll? 3
-Die 1: 4
-Die 2: 2
-Die 3: 6
-Total Sum: 12
-Roll again? (y/n): n
-Game ended.
-```
+- 💾 Save and resume game by username
+- 🚩 Flag/unflag suspected mines
+- 🔢 Auto-reveal empty cells with no adjacent mines
+- 🏆 Win/lose detection with end screen
 
 ---
 
-## 🔢 Algorithm — Linear Congruential Generator (LCG)
+## Built With
 
-The random number generation follows the formula:
-
-```
-Roll = ((Roll × 1103515245) + numOfDice) % 6 + 1
-```
-
-- **Multiplier**: `1103515245` — a well-known LCG constant used in many standard C library `rand()` implementations
-- **Increment**: number of dice (adds variability per session)
-- **Modulus**: `6` — maps the result to the range `[1, 6]`
+- Python 3
+- Pygame
 
 ---
 
-## 👥 Team
-
-Developed by a group of 3 students as part of a **Computer Organization & Architecture** course project.
-
----
-
-## 📚 Concepts Demonstrated
-
-- Pseudo-random number generation
-- Integer arithmetic at the assembly level
-- C and Assembly integration
-- User input handling and validation
-- Loop control and conditional branching
+*Developed as a group project — Year 1, Intro to CS.*
